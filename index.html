@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23 MindSet — Formation professionnelle sur-mesure</title>
+<meta name="description" content="Formation professionnelle sur-mesure : management, performance commerciale, soft skills. Des méthodes applicables immédiatement, un accompagnement avant, pendant et après.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#101010;
+    --surface:#161616;
+    --surface-2:#1c1c1c;
+    --line:rgba(255,255,255,0.08);
+    --line-strong:rgba(255,255,255,0.16);
+    --ink:#F5F2EE;
+    --ink-soft:#A6A19B;
+    --ink-mute:#6E6964;
+    --accent:#E25667;
+    --accent-soft:#F07585;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'DM Sans',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{animation:none!important;transition:none!important}
+  }
+
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent-soft);display:inline-flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--accent)}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(16,16,16,0);backdrop-filter:blur(0px);
+    transition:background .4s ease,backdrop-filter .4s ease,border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(16,16,16,0.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-weight:800;font-size:20px;letter-spacing:-.02em}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:15px;color:var(--ink-soft);font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{
+    border:1px solid var(--line-strong);border-radius:100px;padding:9px 20px!important;
+    color:var(--ink)!important;transition:border-color .2s,background .2s;
+  }
+  .nav-cta:hover{border-color:var(--accent);background:rgba(226,86,103,0.08)}
+  .burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:8px}
+  .burger svg{display:block}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:190px 0 110px}
+  .hero-glow{
+    position:absolute;top:-10%;right:-5%;width:620px;height:620px;
+    background:radial-gradient(circle,rgba(226,86,103,0.16),transparent 65%);
+    filter:blur(20px);pointer-events:none;z-index:0;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{
+    font-size:clamp(44px,7vw,86px);line-height:1.02;font-weight:800;
+    letter-spacing:-.035em;margin:26px 0 0;max-width:14ch;
+  }
+  .hero h1 .em{color:var(--accent)}
+  .hero p.lead{
+    margin-top:30px;max-width:54ch;font-size:clamp(18px,2.2vw,21px);
+    color:var(--ink-soft);line-height:1.6;
+  }
+  .hero-actions{margin-top:42px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;
+    border-radius:100px;padding:15px 28px;transition:transform .2s,background .2s,border-color .2s;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-soft);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink-soft)}
+  .hero-stats{
+    margin-top:64px;display:flex;gap:0;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:30px;
+  }
+  .hero-stat{padding-right:48px;margin-right:48px;border-right:1px solid var(--line)}
+  .hero-stat:last-child{border-right:0;margin-right:0;padding-right:0}
+  .hero-stat .n{font-size:30px;font-weight:800;letter-spacing:-.02em}
+  .hero-stat .l{font-size:14px;color:var(--ink-mute);margin-top:2px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .block{padding:104px 0}
+  .block-head{max-width:62ch}
+  .block-head h2{
+    font-size:clamp(30px,4.4vw,46px);font-weight:700;letter-spacing:-.03em;
+    line-height:1.08;margin-top:18px;
+  }
+  .block-head p{margin-top:18px;color:var(--ink-soft);font-size:18px;max-width:52ch}
+
+  /* ---------- METHODE (signature : fil rouge) ---------- */
+  .method{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .timeline{margin-top:64px;position:relative}
+  .timeline::before{
+    content:"";position:absolute;left:0;top:14px;height:calc(100% - 28px);width:2px;
+    background:linear-gradient(180deg,var(--accent),rgba(226,86,103,0.15));
+  }
+  .steps{display:grid;gap:30px}
+  .step{position:relative;padding-left:42px}
+  .step .dot{
+    position:absolute;left:-7px;top:6px;width:16px;height:16px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);
+  }
+  .step .k{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-soft)}
+  .step h3{font-size:23px;font-weight:700;letter-spacing:-.02em;margin:6px 0 8px}
+  .step p{color:var(--ink-soft);max-width:62ch}
+  @media(min-width:860px){
+    .timeline::before{left:0;top:50%;transform:translateY(-50%);height:2px;width:100%;
+      background:linear-gradient(90deg,var(--accent),rgba(226,86,103,0.15));}
+    .steps{grid-template-columns:repeat(3,1fr);gap:36px}
+    .step{padding-left:0;padding-top:40px}
+    .step .dot{left:0;top:-7px}
+  }
+
+  /* ---------- DOMAINES ---------- */
+  .domains-grid{margin-top:60px;display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:760px){.domains-grid{grid-template-columns:repeat(3,1fr)}}
+  .domain{
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:34px 30px;
+    transition:border-color .25s,transform .25s,background .25s;
+  }
+  .domain:hover{border-color:var(--line-strong);transform:translateY(-4px);background:var(--surface-2)}
+  .domain .num{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.1em}
+  .domain h3{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:14px 0 14px}
+  .domain ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .domain li{color:var(--ink-soft);font-size:15.5px;padding-left:18px;position:relative}
+  .domain li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+  /* ---------- PREUVES ---------- */
+  .proof{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .metrics{margin-top:58px;display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:760px){.metrics{grid-template-columns:repeat(3,1fr)}}
+  .metric{border:1px solid var(--line);border-radius:18px;padding:32px 28px;background:var(--bg)}
+  .metric .pct{font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+  .metric .pct small{font-size:24px;color:var(--accent);font-weight:700}
+  .metric .who{margin-top:16px;font-weight:600;font-size:16px}
+  .metric .what{color:var(--ink-mute);font-size:14.5px;margin-top:3px}
+
+  .quotes{margin-top:64px;display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:760px){.quotes{grid-template-columns:repeat(3,1fr)}}
+  .quote{border:1px solid var(--line);border-radius:18px;padding:28px 26px;background:var(--bg);display:flex;flex-direction:column}
+  .quote .mark{color:var(--accent);font-size:40px;line-height:.6;font-weight:800;height:22px}
+  .quote p{color:var(--ink);font-size:16px;line-height:1.55;margin:14px 0 18px;flex:1}
+  .quote .by{font-size:14px;color:var(--ink-mute);font-weight:500}
+
+  .reco-head{margin-top:88px}
+  .reco-head h3{font-size:24px;font-weight:700;letter-spacing:-.02em}
+  .reco-head p{color:var(--ink-soft);margin-top:8px;max-width:56ch}
+  .recos{margin-top:34px;display:grid;gap:20px;grid-template-columns:1fr}
+  @media(min-width:760px){.recos{grid-template-columns:repeat(3,1fr)}}
+  .reco{border:1px solid var(--line);border-radius:18px;padding:28px 26px;background:var(--bg)}
+  .reco p{color:var(--ink);font-size:15.5px;line-height:1.55}
+  .reco .who{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+  .reco .who .name{font-weight:700;font-size:15px}
+  .reco .who .role{color:var(--ink-mute);font-size:13.5px;margin-top:2px}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:120px 0 110px}
+  .contact-card{
+    border:1px solid var(--line-strong);border-radius:28px;padding:60px 48px;
+    background:linear-gradient(160deg,var(--surface-2),var(--bg));position:relative;overflow:hidden;
+  }
+  .contact-card::after{
+    content:"";position:absolute;right:-80px;bottom:-120px;width:380px;height:380px;
+    background:radial-gradient(circle,rgba(226,86,103,0.14),transparent 60%);pointer-events:none;
+  }
+  .contact-card h2{font-size:clamp(30px,4.6vw,48px);font-weight:800;letter-spacing:-.03em;line-height:1.05;position:relative}
+  .contact-card p{color:var(--ink-soft);font-size:19px;margin-top:18px;max-width:48ch;position:relative}
+  .contact-actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;position:relative}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .foot .logo{font-size:17px}
+  .foot small{color:var(--ink-mute);font-size:13.5px}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- MOBILE NAV ---------- */
+  @media(max-width:820px){
+    .wrap{padding:0 22px}
+    .nav-links{
+      position:fixed;inset:74px 0 auto 0;background:rgba(16,16,16,0.97);backdrop-filter:blur(14px);
+      flex-direction:column;gap:0;padding:8px 22px 22px;border-bottom:1px solid var(--line);
+      transform:translateY(-130%);transition:transform .35s ease;align-items:stretch;
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}
+    .nav-links a:last-child{border-bottom:0}
+    .nav-cta{text-align:center;margin-top:12px;border-radius:100px}
+    .burger{display:block}
+    .hero-stat{padding-right:28px;margin-right:28px;margin-bottom:14px}
+  }
+</style>
+</head>
+<body>
+
+<header id="head">
+  <div class="wrap nav">
+    <a href="#top" class="logo">23&nbsp;<span>MindSet</span></a>
+    <nav class="nav-links" id="menu">
+      <a href="#methode">Méthode</a>
+      <a href="#domaines">Domaines</a>
+      <a href="#preuves">Résultats</a>
+      <a href="#contact" class="nav-cta">Prendre contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="wrap">
+      <span class="eyebrow">Formation professionnelle sur-mesure</span>
+      <h1>Votre parcours.<br>Pas un <span class="em">standard</span>.</h1>
+      <p class="lead">Je conçois chaque formation autour de vos enjeux réels — management, performance commerciale, soft skills. Des méthodes applicables dès la sortie de la salle, et un retour sur investissement rapide et mesurable.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Parlons de vos enjeux →</a>
+        <a href="#methode" class="btn btn-ghost">Découvrir la méthode</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="n">95–100&nbsp;%</div><div class="l">de satisfaction</div></div>
+        <div class="hero-stat"><div class="n">Avant · pendant · après</div><div class="l">un accompagnement continu</div></div>
+        <div class="hero-stat"><div class="n">20 ans</div><div class="l">d'expérience terrain</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODE -->
+  <section class="block method" id="methode">
+    <div class="wrap">
+      <div class="block-head reveal">
+        <span class="eyebrow">Ma méthode</span>
+        <h2>Un accompagnement, pas une prestation.</h2>
+        <p>Une formation qui marque ne commence pas le jour J et ne s'arrête pas le soir. J'individualise à l'extrême : ce qui compte, c'est que chaque personne progresse et reparte avec des réponses concrètes à ses propres questions.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="steps">
+          <div class="step">
+            <div class="dot"></div>
+            <div class="k">Avant</div>
+            <h3>J'écoute vos enjeux</h3>
+            <p>J'échange en amont avec vous et vos équipes pour recueillir les attentes et les besoins réels de chacun. La formation se construit sur cette matière — pas sur un catalogue figé.</p>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <div class="k">Pendant</div>
+            <h3>Je fais progresser chacun</h3>
+            <p>Du sur-mesure, vivant et concret. Des méthodes et des outils applicables immédiatement, conçus pour produire des effets visibles et un ROI rapide sur le terrain.</p>
+          </div>
+          <div class="step">
+            <div class="dot"></div>
+            <div class="k">Après</div>
+            <h3>Je mesure l'impact</h3>
+            <p>Un à deux mois plus tard, je reviens évaluer les effets réels, ajuster si besoin et apporter les conseils complémentaires. La transformation se vérifie dans la durée.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINES -->
+  <section class="block" id="domaines">
+    <div class="wrap">
+      <div class="block-head reveal">
+        <span class="eyebrow">Domaines d'intervention</span>
+        <h2>Trois terrains, une même exigence.</h2>
+        <p>Des programmes pensés pour les grands groupes comme pour les PME, toujours adaptés à votre contexte et à vos équipes.</p>
+      </div>
+      <div class="domains-grid">
+        <div class="domain reveal">
+          <div class="num">01</div>
+          <h3>Management</h3>
+          <ul>
+            <li>Fondamentaux du management de proximité</li>
+            <li>Management à distance et hybride</li>
+            <li>Posture et leadership managérial</li>
+            <li>Cohésion et dynamique d'équipe</li>
+          </ul>
+        </div>
+        <div class="domain reveal">
+          <div class="num">02</div>
+          <h3>Performance commerciale</h3>
+          <ul>
+            <li>Prospection et développement</li>
+            <li>Performance et posture commerciale</li>
+            <li>Conduite d'entretien et closing</li>
+            <li>Pilotage de l'activité</li>
+          </ul>
+        </div>
+        <div class="domain reveal">
+          <div class="num">03</div>
+          <h3>Soft skills &amp; QVCT</h3>
+          <ul>
+            <li>Gestion du stress</li>
+            <li>Gestion des conflits</li>
+            <li>Communication et assertivité</li>
+            <li>Connaissance de soi et des autres</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREUVES -->
+  <section class="block proof" id="preuves">
+    <div class="wrap">
+      <div class="block-head reveal">
+        <span class="eyebrow">Résultats</span>
+        <h2>Une expérience, plus qu'une formation.</h2>
+        <p>Ceux que j'accompagne en repartent avec le sentiment d'avoir vécu une transformation. Les chiffres et les mots qui suivent le disent mieux que moi.</p>
+      </div>
+
+      <div class="metrics">
+        <div class="metric reveal">
+          <div class="pct">95<small>%</small></div>
+          <div class="who">CERTIFER France</div>
+          <div class="what">Management à distance · 6 managers</div>
+        </div>
+        <div class="metric reveal">
+          <div class="pct">100<small>%</small></div>
+          <div class="who">Mes Premiers Pas</div>
+          <div class="what">Marque employeur · 4 participantes</div>
+        </div>
+        <div class="metric reveal">
+          <div class="pct">100<small>%</small></div>
+          <div class="who">Groupe Morgan Services</div>
+          <div class="what">Management de proximité</div>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <div class="quote reveal">
+          <div class="mark">“</div>
+          <p>Le support et le déroulé étaient très personnalisés. Une formation très concrète, avec des outils applicables dès la sortie.</p>
+          <div class="by">— Lea R.</div>
+        </div>
+        <div class="quote reveal">
+          <div class="mark">“</div>
+          <p>C'était très vivant, dynamique. Fares a su répondre à nos attentes et nous donner des pistes concrètes à mettre en place par la suite.</p>
+          <div class="by">— Alexandra T.</div>
+        </div>
+        <div class="quote reveal">
+          <div class="mark">“</div>
+          <p>Très très bonne formation, très pédagogique. Merci&nbsp;!</p>
+          <div class="by">— Eric L.</div>
+        </div>
+      </div>
+
+      <div class="reco-head reveal">
+        <h3>Ils ont travaillé à mes côtés</h3>
+        <p>Des dirigeants et collaborateurs qui parlent de ma façon de travailler — l'écoute, la disponibilité, l'humain.</p>
+      </div>
+      <div class="recos">
+        <div class="reco reveal">
+          <p>Fares fait partie de ces formateurs qui marquent : à la fois pédagogue, à l'écoute et toujours disponible. Travailler à ses côtés a été une expérience aussi enrichissante qu'agréable, sur le plan humain comme professionnel.</p>
+          <div class="who"><div class="name">Yassine Zahri</div><div class="role">Président — ATOME 3D Grand Paris Sud</div></div>
+        </div>
+        <div class="reco reveal">
+          <p>On dit souvent que l'atout numéro un des meilleurs formateurs, c'est de grandes oreilles et une petite bouche. C'est totalement le cas de Fares : l'écoute active d'abord, les bonnes solutions ensuite.</p>
+          <div class="who"><div class="name">James Rahme</div><div class="role">Business Engineer</div></div>
+        </div>
+        <div class="reco reveal">
+          <p>Fares a été un super formateur. Il m'a accompagné sur l'alternance et m'a permis de performer dans l'analyse financière, la prise et l'émission d'appels.</p>
+          <div class="who"><div class="name">Kyrian Thomaseau</div><div class="role">Co-gérant (COO) — SSCS Training &amp; MA Formation</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <h2>Parlons de vos enjeux.</h2>
+        <p>Un besoin de formation, une équipe à faire grandir, un projet à cadrer&nbsp;? Échangeons — la première conversation sert à comprendre, pas à vendre.</p>
+        <div class="contact-actions">
+          <a href="mailto:23mindset.officiel@gmail.com" class="btn btn-primary">Écrire un message →</a>
+          <a href="https://www.linkedin.com/in/fares-atba-23mindset" target="_blank" rel="noopener" class="btn btn-ghost">Profil LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span class="logo">23&nbsp;<span style="color:var(--accent)">MindSet</span></span>
+    <small>Formation professionnelle sur-mesure · Management · Performance commerciale · Soft skills</small>
+  </div>
+</footer>
+
+<script>
+  // Nav background on scroll
+  var head=document.getElementById('head');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>20){head.classList.add('scrolled')}else{head.classList.remove('scrolled')}
+  });
+
+  // Mobile menu
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){menu.classList.toggle('open')});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+</script>
+
+</body>
+</html>
