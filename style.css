@@ -247,6 +247,9 @@ section{position:relative}
   display:grid;place-items:center;text-align:center;
 }
 .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.portrait .photo-clair{display:none}
+[data-theme="light"] .portrait .photo-sombre{display:none}
+[data-theme="light"] .portrait .photo-clair{display:block}
 .portrait .ph{padding:30px;color:var(--ink-mute)}
 .portrait .ph .badge{font-size:46px;font-weight:800;color:var(--accent);letter-spacing:-.03em}
 .portrait .ph small{display:block;margin-top:10px;font-size:13px;letter-spacing:.04em}
