@@ -169,11 +169,11 @@ section{position:relative}
 .step h3{font-size:23px;font-weight:700;letter-spacing:-.02em;margin:6px 0 8px}
 .step p{color:var(--ink-soft);max-width:62ch}
 @media(min-width:860px){
-  .timeline::before{left:0;top:50%;transform:translateY(-50%);height:2px;width:100%;
+  .timeline::before{left:0;top:7px;transform:none;height:2px;width:100%;
     background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 15%,transparent));}
   .steps{grid-template-columns:repeat(3,1fr);gap:36px}
-  .step{padding-left:0;padding-top:40px}
-  .step .dot{left:0;top:-7px}
+  .step{padding-left:0;padding-top:48px}
+  .step .dot{left:0;top:0}
 }
 
 /* ---------- DOMAINES ---------- */
