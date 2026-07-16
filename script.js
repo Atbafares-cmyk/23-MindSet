@@ -49,3 +49,21 @@
 
 /* Année automatique dans le footer */
 document.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});
+
+/* Formulaire de contact (Web3Forms) */
+(function(){
+  var cf=document.getElementById('contactForm');
+  if(!cf)return;
+  var status=document.getElementById('formStatus');
+  cf.addEventListener('submit',function(e){
+    e.preventDefault();
+    status.textContent='Envoi en cours…';
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(cf)})
+      .then(function(r){return r.json();})
+      .then(function(res){
+        if(res.success){cf.reset();status.textContent='Merci, votre message a bien été envoyé. Je vous réponds au plus vite.';}
+        else{status.textContent='Une erreur est survenue. Réessayez, ou écrivez-moi via LinkedIn.';}
+      })
+      .catch(function(){status.textContent='Une erreur est survenue. Réessayez, ou écrivez-moi via LinkedIn.';});
+  });
+})();

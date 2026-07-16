@@ -239,11 +239,24 @@
     <div class="wrap">
       <div class="contact-card reveal">
         <h2>Parlons de vos enjeux.</h2>
-        <p>Un besoin de formation, une équipe à faire grandir, un projet à cadrer&nbsp;? Échangeons — la première conversation sert à comprendre, pas à vendre.</p>
-        <div class="contact-actions">
-          <a href="mailto:23mindset.officiel@gmail.com" class="btn btn-primary">Écrire un message →</a>
-          <a href="https://www.linkedin.com/in/fares-atba-23mindset" target="_blank" rel="noopener" class="btn btn-ghost">Profil LinkedIn</a>
-        </div>
+        <p>Un besoin de formation, une équipe à faire grandir, un projet à cadrer&nbsp;? Écrivez-moi — la première conversation sert à comprendre, pas à vendre.</p>
+        <form class="contact-form" id="contactForm">
+          <input type="hidden" name="access_key" value="e3d574c6-cca7-4fde-897c-6557c9ba1c4f">
+          <input type="hidden" name="subject" value="Nouveau message depuis le site 23 MindSet">
+          <input type="hidden" name="from_name" value="Site 23 MindSet">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email professionnel" required>
+          </div>
+          <textarea name="message" rows="5" placeholder="Votre besoin en quelques mots…" required></textarea>
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+          <div class="form-foot">
+            <button type="submit" class="btn btn-primary">Envoyer le message →</button>
+            <a href="https://www.linkedin.com/in/fares-atba-23mindset" target="_blank" rel="noopener" class="btn btn-ghost">Ou via LinkedIn</a>
+          </div>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-consent">En envoyant ce message, vous acceptez d'être recontacté au sujet de votre demande. Vos données ne sont ni cédées ni conservées au-delà de l'échange.</p>
+        </form>
       </div>
     </div>
   </section>
