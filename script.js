@@ -46,3 +46,6 @@
     document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
   });
 })();
+
+/* Année automatique dans le footer */
+document.querySelectorAll('[data-year]').forEach(function(el){el.textContent=new Date().getFullYear();});
